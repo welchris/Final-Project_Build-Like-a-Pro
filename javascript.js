@@ -22,21 +22,19 @@ function sortItems() {
     let sortedItems;
 
  if (sortOption === "name") {
-        sortedItems = items.sort((a, b) => a.name.localeCompare(b.name)); // Sort by name
+        sortedItems = items.sort((a, b) => a.name.localeCompare(b.name));
     } else if (sortOption === "nameReverse") {
-        sortedItems = items.sort((a, b) => b.name.localeCompare(a.name)); // Sort by name in reverse
+        sortedItems = items.sort((a, b) => b.name.localeCompare(a.name)); 
     } else if (sortOption === "rating") {
-        sortedItems = items.sort((a, b) => b.rating - a.rating); // Sort by rating (Highest to Lowest)
+        sortedItems = items.sort((a, b) => b.rating - a.rating);
     } else if (sortOption === "ratingReverse") {
-        sortedItems = items.sort((a, b) => a.rating - b.rating); // Sort by rating (Lowest to Highest)
+        sortedItems = items.sort((a, b) => a.rating - b.rating);
     }
 
 
     displayItems(sortedItems);
 }
 
-// Initial display
 displayItems(items);
 
-// Event listener for sorting
 document.getElementById("sortOptions").addEventListener("change", sortItems);
