@@ -9,7 +9,7 @@ const items = [
 
 function displayItems(items) {
     const itemList = document.getElementById("itemList");
-    itemList.innerHTML = ""; // Clear the list
+    itemList.innerHTML = "";
     items.forEach(item => {
         const li = document.createElement("li");
         li.textContent = `${item.name} - ${item.rating.toFixed(1)}`;
