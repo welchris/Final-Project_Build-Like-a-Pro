@@ -9,7 +9,7 @@ const items = [
 
 function displayItems(items) {
     const itemList = document.getElementById("itemList");
-    itemList.innerHTML = "";
+    itemList.innerHTML = ""; 
     items.forEach(item => {
         const li = document.createElement("li");
         li.textContent = `${item.name} - ${item.rating.toFixed(1)}`;
@@ -19,22 +19,22 @@ function displayItems(items) {
 
 function sortItems() {
     const sortOption = document.getElementById("sortOptions").value;
-    let sortedItems;
+    let sortedItems = [...items]; 
 
- if (sortOption === "name") {
-        sortedItems = items.sort((a, b) => a.name.localeCompare(b.name));
+    if (sortOption === "name") {
+        sortedItems.sort((a, b) => a.name.localeCompare(b.name));
     } else if (sortOption === "nameReverse") {
-        sortedItems = items.sort((a, b) => b.name.localeCompare(a.name)); 
+        sortedItems.sort((a, b) => b.name.localeCompare(a.name)); 
     } else if (sortOption === "rating") {
-        sortedItems = items.sort((a, b) => b.rating - a.rating);
+        sortedItems.sort((a, b) => b.rating - a.rating);
     } else if (sortOption === "ratingReverse") {
-        sortedItems = items.sort((a, b) => a.rating - b.rating);
+        sortedItems.sort((a, b) => a.rating - b.rating);
     }
-
 
     displayItems(sortedItems);
 }
 
-displayItems(items);
-
-document.getElementById("sortOptions").addEventListener("change", sortItems);
+document.addEventListener("DOMContentLoaded", () => {
+    displayItems(items);
+    document.getElementById("sortOptions").addEventListener("change", sortItems);
+});
