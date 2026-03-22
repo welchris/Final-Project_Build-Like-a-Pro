@@ -9,7 +9,7 @@ const items = [
 
 function displayItems(items) {
     const itemList = document.getElementById("itemList");
-    itemList.innerHTML = ""; // Clear the list
+    itemList.innerHTML = ""; 
     items.forEach(item => {
         const li = document.createElement("li");
         li.textContent = `${item.name} - ${item.rating.toFixed(1)}`;
@@ -19,24 +19,22 @@ function displayItems(items) {
 
 function sortItems() {
     const sortOption = document.getElementById("sortOptions").value;
-    let sortedItems;
+    let sortedItems = [...items]; 
 
- if (sortOption === "name") {
-        sortedItems = items.sort((a, b) => a.name.localeCompare(b.name)); // Sort by name
+    if (sortOption === "name") {
+        sortedItems.sort((a, b) => a.name.localeCompare(b.name));
     } else if (sortOption === "nameReverse") {
-        sortedItems = items.sort((a, b) => b.name.localeCompare(a.name)); // Sort by name in reverse
+        sortedItems.sort((a, b) => b.name.localeCompare(a.name)); 
     } else if (sortOption === "rating") {
-        sortedItems = items.sort((a, b) => b.rating - a.rating); // Sort by rating (Highest to Lowest)
+        sortedItems.sort((a, b) => b.rating - a.rating);
     } else if (sortOption === "ratingReverse") {
-        sortedItems = items.sort((a, b) => a.rating - b.rating); // Sort by rating (Lowest to Highest)
+        sortedItems.sort((a, b) => a.rating - b.rating);
     }
-
 
     displayItems(sortedItems);
 }
 
-// Initial display
-displayItems(items);
-
-// Event listener for sorting
-document.getElementById("sortOptions").addEventListener("change", sortItems);
+document.addEventListener("DOMContentLoaded", () => {
+    displayItems(items);
+    document.getElementById("sortOptions").addEventListener("change", sortItems);
+});
