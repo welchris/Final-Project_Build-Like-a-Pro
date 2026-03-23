@@ -1,10 +1,10 @@
 const items = [
-    { name: "Attack on Titan", rating: 4.5 },
-    { name: "Demon Slayer: Kimetsu no Yaiba: Mugen Train", rating: 4.5 },
-    { name: "Frieren: Beyond Journey's End", rating: 5.0 },
-    { name: "Jujutsu Kaisen", rating: 2.0 },
-    { name: "Solo Leveling", rating: 5.0 },
-    { name: "That Time I Got Reincarnated as a Slime", rating: 4.5 },
+    { name: "Attack on Titan", rating: 4.5, image: "/assets/AOT.jpg" },
+    { name: "Demon Slayer: Kimetsu no Yaiba: Mugen Train", rating: 4.5, image: "/assets/DemonSlayer.jpg" },
+    { name: "Frieren: Beyond Journey's End", rating: 5.0, image: "/assets/Frieren.jpg" },
+    { name: "Jujutsu Kaisen", rating: 2.0, image: "/assets/jujutsu_kaisen.jpg" },
+    { name: "Solo Leveling", rating: 5.0, image: "/assets/Solo Leveling.jpg" },
+    { name: "That Time I Got Reincarnated as a Slime", rating: 4.5, image: "/assets/Slime.jpg" },
 ];
 
 function displayItems(items) {
@@ -12,7 +12,16 @@ function displayItems(items) {
     itemList.innerHTML = ""; 
     items.forEach(item => {
         const li = document.createElement("li");
-        li.textContent = `${item.name} - ${item.rating.toFixed(1)}`;
+        
+        const img = document.createElement("img");
+        img.src = item.image; 
+        img.alt = item.name; 
+        img.style.width = "50px"; 
+        img.style.height = "auto"; 
+        
+        li.appendChild(img);
+        li.appendChild(document.createTextNode(` ${item.name} - ${item.rating.toFixed(1)}`));
+        
         itemList.appendChild(li);
     });
 }
