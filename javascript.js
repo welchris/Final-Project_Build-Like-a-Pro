@@ -1,10 +1,10 @@
 const items = [
-    { name: "Attack on Titan", rating: 4.5, image: "/assets/AOT.jpg" },
-    { name: "Demon Slayer: Kimetsu no Yaiba: Mugen Train", rating: 4.5, image: "/assets/DemonSlayer.jpg" },
-    { name: "Frieren: Beyond Journey's End", rating: 5.0, image: "/assets/Frieren.jpg" },
-    { name: "Jujutsu Kaisen", rating: 2.0, image: "/assets/jujutsu_kaisen.jpg" },
-    { name: "Solo Leveling", rating: 5.0, image: "/assets/Solo Leveling.jpg" },
-    { name: "That Time I Got Reincarnated as a Slime", rating: 4.5, image: "/assets/Slime.jpg" },
+    { name: "Attack on Titan", rating: 4.5, image: "./assets/AOT.jpg" },
+    { name: "Demon Slayer: Kimetsu no Yaiba: Mugen Train", rating: 4.5, image: "./assets/DemonSlayer.jpg" },
+    { name: "Frieren: Beyond Journey's End", rating: 5.0, image: "./assets/Frieren.jpg" },
+    { name: "Jujutsu Kaisen", rating: 2.0, image: "./assets/jujutsu_kaisen.jpg" },
+    { name: "Solo Leveling", rating: 5.0, image: "./assets/Solo Leveling.jpg" },
+    { name: "That Time I Got Reincarnated as a Slime", rating: 4.5, image: "./assets/Slime.jpg" },
 ];
 
 function displayItems(items) {
